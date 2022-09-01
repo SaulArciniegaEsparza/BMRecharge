@@ -1,0 +1,18 @@
+include img/logo.png
+include layers/Aquifers.geojson
+include layers/Zones.geojson
+include layers/Aquifers.csv
+include layers/Zones.csv
+include maps/CHIRPS.nc
+include maps/CHIRPSC.nc
+include maps/CHIRPS-Daymet.nc
+include maps/Ground Gauges.nc
+include series/CHIRPS_Aquifers.csv
+include series/CHIRPS_Zones.csv
+include series/CHIRPSC_Aquifers.csv
+include series/CHIRPSC_Zones.csv
+include series/CHIRPS-Daymet_Aquifers.csv
+include series/CHIRPS-Daymet_Zones.csv
+include series/Ground Gauges_Aquifers.csv
+include series/Ground Gauges_Zones.csv
+include series/Recharge.csv
