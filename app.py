@@ -9,7 +9,6 @@ import streamlit as st
 from PIL import Image
 
 
-BASIN_AREA = 8827  # Km2
 st.set_page_config(page_title="BMRecharge-App", layout="wide")
 
 #%% Main functions and Load data
@@ -84,7 +83,7 @@ layers = read_layers()
 attributes = read_attributes()
 
 
-@st.cache(persist=True)
+@st.cache
 def create_map(mtype, dname, cmap, layers, attributes):
     if mtype == "Basin-wide":
         data = attributes[mtype][dname]
@@ -161,10 +160,11 @@ def create_map(mtype, dname, cmap, layers, attributes):
 
 @st.cache
 def read_serie(mtype, dname, attributes):
+    basin_area = 8827  # Km2
     if mtype == "Basin-wide":
         data = database[mtype].melt(ignore_index=False).reset_index()
         data.columns = ["Year", "Database", "Recharge (mm)"]
-        data["Recharge (m3/s)"] = np.round(data["Recharge (mm)"] * BASIN_AREA * 1e3 / (86400 * 365), 2)
+        data["Recharge (m3/s)"] = np.round(data["Recharge (mm)"] * basin_area * 1e3 / (86400 * 365), 2)
         data = data.loc[:, ["Year", "Database", "Recharge (mm)", "Recharge (m3/s)"]]
 
     else:
@@ -179,10 +179,11 @@ def read_serie(mtype, dname, attributes):
     return data
 
 def create_timeserie(mtype, dname, attributes):
+    basin_area = 8827  # Km2
     if mtype == "Basin-wide":
         data = database[mtype].melt(ignore_index=False).reset_index()
         data.columns = ["Year", "Database", "Recharge (mm)"]
-        data["Recharge (m3/s)"] = np.round(data["Recharge (mm)"] * BASIN_AREA * 1e3 / (86400 * 365), 2)
+        data["Recharge (m3/s)"] = np.round(data["Recharge (mm)"] * basin_area * 1e3 / (86400 * 365), 2)
 
         fig = px.line(data, x="Year", y="Recharge (mm)", color="Database", width=800, height=400)
         fig.update_yaxes(title="Recharge (mm)", title_font={"size": 18})
