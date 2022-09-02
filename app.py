@@ -84,7 +84,7 @@ layers = read_layers()
 attributes = read_attributes()
 
 
-@st.experimental_memo
+@st.cache(persist=True)
 def create_map(mtype, dname, cmap, layers, attributes):
     if mtype == "Basin-wide":
         data = attributes[mtype][dname]
@@ -237,8 +237,6 @@ mtype = st.sidebar.selectbox("Select data type:", ("About", "Basin-wide", "Aquif
 
 
 if mtype == "About":
-    st.experimental_memo.clear()
-    
     with open(os.path.join(root, "about_en.md"), "r") as fid:
         about_text = fid.read()
     st.markdown(about_text)
