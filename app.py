@@ -34,7 +34,7 @@ def read_timeseries():
             "CHIRPSC": pd.read_csv(os.path.join(root, "series", "CHIRPSC_Zones.csv"), index_col=[0]),
             "CHIRPS-Daymet": pd.read_csv(os.path.join(root, "series", "CHIRPS-Daymet_Zones.csv"), index_col=[0]),
         },
-        "Grids": pd.read_csv(os.path.join(root, "series", "Recharge.csv"), index_col=[0])
+        "Basin-wide": pd.read_csv(os.path.join(root, "series", "Recharge.csv"), index_col=[0])
     }
     return database
 
@@ -47,7 +47,7 @@ def read_layers(allow_output_mutation=True):
     aquifers = json.load(open(os.path.join(root, "layers", "Aquifers.geojson"), "r", encoding="utf-8"))
     zones = json.load(open(os.path.join(root, "layers", "Zones.geojson"), "r", encoding="utf-8"))
     layers = {
-        "Grids": grid,
+        "Basin-wide": grid,
         "Aquifers": aquifers,
         "Zones": zones
     }
@@ -60,7 +60,7 @@ def read_attributes():
     attributes = {
         "Aquifers": pd.read_csv(os.path.join(root, "layers", "Aquifers.csv"), index_col=[0]),
         "Zones": pd.read_csv(os.path.join(root, "layers", "Zones.csv"), index_col=[0]),
-        "Grids": {
+        "Basin-wide": {
             "CHIRPS": pd.read_csv(os.path.join(root, "maps", "CHIRPS.csv"), index_col=[0]),
             "CHIRPSC": pd.read_csv(os.path.join(root, "maps", "CHIRPSC.csv"), index_col=[0]),
             "CHIRPS-Daymet": pd.read_csv(os.path.join(root, "maps", "CHIRPS-Daymet.csv"), index_col=[0]),
@@ -68,12 +68,12 @@ def read_attributes():
         }
     }
     pixel_area = 2000 * 2000
-    for key in attributes["Grids"].keys():
-        table = attributes["Grids"][key].melt(ignore_index=False).reset_index()
+    for key in attributes["Basin-wide"].keys():
+        table = attributes["Basin-wide"][key].melt(ignore_index=False).reset_index()
         table.columns = ["ID", "Year", "Recharge (mm)"]
         table["Recharge (lps)"] = (table["Recharge (mm)"]  * pixel_area / (86400 * 365)).round(2)
         table["Year"] = table["Year"].astype(int)
-        attributes["Grids"][key] = table
+        attributes["Basin-wide"][key] = table
 
     for key in ("Aquifers", "Zones"):
         attributes[key].index = [str(x) for x in attributes[key].index]
@@ -84,14 +84,14 @@ layers = read_layers()
 attributes = read_attributes()
 
 
-@st.cache
+@st.experimental_memo
 def create_map(mtype, dname, cmap, layers, attributes):
-    if mtype == "Grids":
+    if mtype == "Basin-wide":
         data = attributes[mtype][dname]
 
         fig = px.choropleth_mapbox(
             data,
-            geojson=layers["Grids"],
+            geojson=layers["Basin-wide"],
             animation_frame="Year",
             color="Recharge (mm)",
             locations="ID",
@@ -161,7 +161,7 @@ def create_map(mtype, dname, cmap, layers, attributes):
 
 @st.cache
 def read_serie(mtype, dname, attributes):
-    if mtype == "Grids":
+    if mtype == "Basin-wide":
         data = database[mtype].melt(ignore_index=False).reset_index()
         data.columns = ["Year", "Database", "Recharge (mm)"]
         data["Recharge (m3/s)"] = np.round(data["Recharge (mm)"] * BASIN_AREA * 1e3 / (86400 * 365), 2)
@@ -179,7 +179,7 @@ def read_serie(mtype, dname, attributes):
     return data
 
 def create_timeserie(mtype, dname, attributes):
-    if mtype == "Grids":
+    if mtype == "Basin-wide":
         data = database[mtype].melt(ignore_index=False).reset_index()
         data.columns = ["Year", "Database", "Recharge (mm)"]
         data["Recharge (m3/s)"] = np.round(data["Recharge (mm)"] * BASIN_AREA * 1e3 / (86400 * 365), 2)
@@ -233,10 +233,12 @@ def convert_df1(df):
 
 #%% Sidebar
 st.sidebar.title("BMRecharge Inputs")
-mtype = st.sidebar.selectbox("Select data type:", ("About", "Grids", "Aquifers", "Zones"))
+mtype = st.sidebar.selectbox("Select data type:", ("About", "Basin-wide", "Aquifers", "Zones"))
 
 
 if mtype == "About":
+    st.experimental_memo.clear()
+    
     with open(os.path.join(root, "about_en.md"), "r") as fid:
         about_text = fid.read()
     st.markdown(about_text)
@@ -264,7 +266,7 @@ else:
     st.plotly_chart(fig1, use_container_width=True)
 
     # Timeseries
-    if mtype == "Grids":
+    if mtype == "Basin-wide":
         zone_type = "Basin of Mexico"
     else:
         zone_type = mtype
@@ -285,7 +287,7 @@ else:
     # Output data
     st.subheader("Download Data")
     st.markdown("Select the annual time-series to download.")
-    if mtype == "Grids":
+    if mtype == "Basin-wide":
         saveas  = f"MexicoBasin_Average_Recharge_mm.csv"
         saveas1 = f"MexicoBasin_Average_Recharge_m3-s.csv"
     else:

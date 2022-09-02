@@ -1,20 +1,20 @@
 # BMRecharge - Basin of Mexico Recharge App
 
-**Groundwater recharge** is a very complex variable to compute since it depends on many factors such as climatology, vegetation, topography, soil properties, and geology, among others.
+**Groundwater recharge** is a complex variable to underestand that depends on multiple factors including climatology, vegetation, topography, soil properties, and surficial geology, among others.
 
-Groundwater recharge estimates are essential to improve the water management practices in the so-called **Basin of Mexico**, an ~8,800 km$^{2}$ basin where groundwater abstraction exceeds natural recharge from rainfall percolation.
+Groundwater recharge estimates are essential to improve water management practices in the so-called **Basin of Mexico**, an ~8,800 km$^{2}$ basin in central Mexico where groundwater abstraction exceeds natural recharge from rainfall percolation, leading to increasing drawdown rates, hydrogeochemical degradation and severe land subsidence.
 
-The **BMRecharge-App** is a Web-based explorer tool to visualize, display, assess, and download the **annual potential recharge** modeled across the Basin of Mexico for the period 2000-2021, as a part of the scientific research developed by the [**Hydrogeology Group**](https://www.ingenieria.unam.mx/hydrogeology/) at the [**Faculty of Engineering, UNAM**](https://www.ingenieria.unam.mx/index.php), Mexico.
+The **BMRecharge-App** is a Web-based explorer tool to visualize, display, assess, and download the **annual potential recharge** modeled across the Basin of Mexico for the period 2000-2021. Overall, quantitative evaluation of groundwater resources in the Basin of Mexico is of prime interest in our research Group (the **Hydrogeology Group** at the [**Faculty of Engineering, UNAM**](https://www.ingenieria.unam.mx/index.php), Mexico), and currently, the analysis of potential recharge in this basin represents the PhD research topic of [*Sergio Gonzalez-Ortigoza*](https://www.linkedin.com/in/sergio-gonzalez-ortigoza-47a97024a/). 
 
 
 ## Instructions
 
-1. From the left side panel, select the **data type**, namely, how to visualize the modeled recharge in the Basin of Mexico: by aquifer or groundwater management unit (**Aquifers**), by geological and topographic zones (**Zones**), or as a gridded-based continuous domain (**Grids**). If "About" is selected, you will be returned to this page.
+1. From the left side panel, select the **data type**, namely, how to visualize the modeled recharge in the Basin of Mexico: by aquifer or groundwater management unit (**Aquifers**), by geographical zones (**Zones**), or as a gridded-based continuous domain (**Basin-wide**). If "About" is selected, you will be returned to this page.
 
-2. Different climatological databases were used to simulate the recharge since input data to numerical models use to be a source of uncertainty. After the data type is selected, choose the desired database:
+2. Different climatological databases were used to simulate recharge to evaluate the impact of different data sources. After the data type is selected, choose the desired database:
 
-    - *Ground Gauges*: Climatological data from ground stations considering the period 2000-2016 from the [**National Meteorological Service (SMN)**](https://smn.conagua.gob.mx/es/climatologia/informacion-climatologica/informacion-estadistica-climatologica). The daily precipitation and temperature was interpolated to force the model.
-    - *CHIRPS*: Global daily precipitation from the [Climate Hazards Group InfraRed Precipitation with Station data](https://www.chc.ucsb.edu/data/chirps) (*Funk et al., 2015*), in combination with daily air temperature from the [**SMN**](https://smn.conagua.gob.mx/es/climatologia/informacion-climatologica/informacion-estadistica-climatologica) ( period 2000-2016).
+    - *Ground Gauges*: Climatological data from ground stations considering the period 2000-2016 from the [**Mexican Meteorological Service (SMN)**](https://smn.conagua.gob.mx/es/climatologia/informacion-climatologica/informacion-estadistica-climatologica). The daily precipitation and temperature was interpolated to force the model.
+    - *CHIRPS*: Remotely-sensed global daily precipitation from the [Climate Hazards Group InfraRed Precipitation with Station data](https://www.chc.ucsb.edu/data/chirps) (*Funk et al., 2015*), in combination with daily air temperature from the [**SMN**](https://smn.conagua.gob.mx/es/climatologia/informacion-climatologica/informacion-estadistica-climatologica) ( period 2000-2016).
     - *CHIRPSC*: A bias corrected version of the [CHIRPS](https://www.chc.ucsb.edu/data/chirps) product using ground stations in combination with daily air temperature from the [**SMN**](https://smn.conagua.gob.mx/es/climatologia/informacion-climatologica/informacion-estadistica-climatologica) (period 2000-2016).
     - *CHIRPS-Daymet*: Daily precipitation from [CHIRPS](https://www.chc.ucsb.edu/data/chirps) and daily air temperature from the global gridded product [**Daymet**](https://daymet.ornl.gov/) from the NASA (period 2000 to 2021).
 
@@ -28,7 +28,7 @@ The potential recharge in the Basin of Mexico was modeled using the [**Soil Wate
 
 ## About the authors
 
-**Recharge Modeler**: *Sergio Gonzalez Ortigoza*, PhD. candidate at the [**Programa de Maestria y Doctorado en Ingenieria Civil, UNAM**](http://ingen.posgrado.unam.mx/).
+**Recharge Modeler**: *Sergio Gonzalez Ortigoza*, PhD. candidate at the [**Programa de Maestria y Doctorado en Ingenieria Civil, UNAM**](http://ingen.posgrado.unam.mx/). Social Media: [**LinkedIn**](https://www.linkedin.com/in/sergio-gonzalez-ortigoza-47a97024a/)
 
 **App Developer**: *Dr. Saul Arciniega Esparza*, Full Time Associate Professor at the [**Faculty of Engineering, UNAM**](https://www.ingenieria.unam.mx/index.php). Member of the [**Hydrogeology Group**](https://www.ingenieria.unam.mx/hydrogeology/). Social Media: [**ResearchGate**](https://www.researchgate.net/profile/Saul-Arciniega-Esparza) | [**Twitter**](https://twitter.com/zaul_arciniega) | [**LinkedIn**](https://www.linkedin.com/in/saularciniegaesparza/)
 
