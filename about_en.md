@@ -28,11 +28,11 @@ The potential recharge in the Basin of Mexico was modeled using the [**Soil Wate
 
 ## About the authors
 
-**Recharge Modeler**: *Sergio Gonzalez Ortigoza*, PhD. candidate at the [**Programa de Maestria y Doctorado en Ingenieria Civil, UNAM**](http://ingen.posgrado.unam.mx/). Social Media: [**LinkedIn**](https://www.linkedin.com/in/sergio-gonzalez-ortigoza-47a97024a/)
+**Recharge Modeler**: *Sergio Gonzalez-Ortigoza*, PhD. candidate at the [**Programa de Maestria y Doctorado en Ingenieria Civil, UNAM**](http://ingen.posgrado.unam.mx/). Social Media: [**LinkedIn**](https://www.linkedin.com/in/sergio-gonzalez-ortigoza-47a97024a/)
 
-**App Developer**: *Dr. Saul Arciniega Esparza*, Full Time Associate Professor at the [**Faculty of Engineering, UNAM**](https://www.ingenieria.unam.mx/index.php). Member of the [**Hydrogeology Group**](https://www.ingenieria.unam.mx/hydrogeology/). Social Media: [**ResearchGate**](https://www.researchgate.net/profile/Saul-Arciniega-Esparza) | [**Twitter**](https://twitter.com/zaul_arciniega) | [**LinkedIn**](https://www.linkedin.com/in/saularciniegaesparza/)
+**App Developer**: *Dr. Saul Arciniega-Esparza*, Full Time Associate Professor at the [**Faculty of Engineering, UNAM**](https://www.ingenieria.unam.mx/index.php). Member of the [**Hydrogeology Group**](https://www.ingenieria.unam.mx/hydrogeology/). Social Media: [**ResearchGate**](https://www.researchgate.net/profile/Saul-Arciniega-Esparza) | [**Twitter**](https://twitter.com/zaul_arciniega) | [**LinkedIn**](https://www.linkedin.com/in/saularciniegaesparza/)
 
-**Principal Researcher**: *Dr. Antonio Hernandez Esripu*, Full Time Research Professor at the [**Faculty of Engineering, UNAM**](https://www.ingenieria.unam.mx/index.php). Leader of the [**Hydrogeology Group**](https://www.ingenieria.unam.mx/hydrogeology/). Social Media: [**ResearchGate**](https://www.researchgate.net/profile/Antonio-Hernandez-Espriu) | [**Twitter**](https://twitter.com/hydrogeologymx).
+**Principal Researcher**: *Dr. Antonio Hernández-Espiú*, Full Time Research Professor at the [**Faculty of Engineering, UNAM**](https://www.ingenieria.unam.mx/index.php). Leader of the [**Hydrogeology Group**](https://www.ingenieria.unam.mx/hydrogeology/). Social Media: [**ResearchGate**](https://www.researchgate.net/profile/Antonio-Hernandez-Espriu) | [**Twitter**](https://twitter.com/hydrogeologymx).
 
 
 ## References

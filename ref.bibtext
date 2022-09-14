@@ -1,0 +1,39 @@
+@software{jeff_reback_2022_7037953,
+  author       = {Jeff Reback and
+                  jbrockmendel and
+                  Wes McKinney and
+                  Joris Van den Bossche and
+                  Matthew Roeschke and
+                  Tom Augspurger and
+                  Simon Hawkins and
+                  Phillip Cloud and
+                  gfyoung and
+                  Patrick Hoefler and
+                  Sinhrks and
+                  Adam Klein and
+                  Terji Petersen and
+                  Jeff Tratner and
+                  Chang She and
+                  William Ayd and
+                  Richard Shadrach and
+                  Shahar Naveh and
+                  Marc Garcia and
+                  JHM Darbyshire and
+                  Jeremy Schendel and
+                  Torsten Wörtwein and
+                  Andy Hayden and
+                  Daniel Saxton and
+                  Marco Edward Gorelli and
+                  Fangchen Li and
+                  Matthew Zeitlin and
+                  Vytautas Jancauskas and
+                  Ali McMaster and
+                  Thomas Li},
+  title        = {pandas-dev/pandas: Pandas 1.4.4},
+  month        = aug,
+  year         = 2022,
+  publisher    = {Zenodo},
+  version      = {v1.4.4},
+  doi          = {10.5281/zenodo.7037953},
+  url          = {https://doi.org/10.5281/zenodo.7037953}
+}
